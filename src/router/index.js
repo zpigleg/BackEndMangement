@@ -1,14 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
+const Home = ()=> import('@/Views/home/Home.vue');
+const Login = ()=> import('@/Views/login/Login.vue');
+
 Vue.use(VueRouter);
 const routes = [
+  {
+    path:'/login',
+    meta:{
+      title:'登录'
+    },
+    component:Login
+  },
   {
     path:'/index',
     meta:{
       title:'首页'
     },
-    component: (resolve) => require(['@/views/index.vue'],resolve)
+    component:Home
   },
   {
     path:'/about',
